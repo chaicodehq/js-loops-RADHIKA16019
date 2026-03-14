@@ -28,4 +28,17 @@
  */
 export function chaiTapriRevenue(customers) {
   // Your code here
+  if(typeof customers!=="number"  || !Number.isInteger(customers) || customers<=0 ){
+    return { totalChai: 0, totalRevenue: 0 }
+  }
+  let adrak=Math.floor(customers/3);
+  let cutting= customers-adrak;
+
+  let totalRevenue= adrak*15+cutting*10;
+
+  return {
+    "totalChai" : customers,
+    "totalRevenue" : totalRevenue
+  }
+
 }

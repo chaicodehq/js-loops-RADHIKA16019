@@ -33,4 +33,27 @@
  */
 export function calculateAutoFare(distance, waitingMinutes = 0) {
   // Your code here
+
+// I didn't use while loop here as i don't came to know about its significance here 
+
+   let dist=Math.ceil(distance);
+
+  if( !Number.isInteger(dist) ||distance<=0 || waitingMinutes<0){
+    return -1;
+  }
+
+
+  let waitingCharges=Math.ceil(waitingMinutes/2);
+  let fare;
+  if(dist<=1){
+    fare=(30)+waitingCharges*5;
+  }
+  else if(dist>1 && dist<=5){
+    fare=(15+(dist*15))+waitingCharges*5;
+  }
+  else{
+    fare=(90+(dist-5)*10)+waitingCharges*5;
+  }
+
+  return fare;
 }
